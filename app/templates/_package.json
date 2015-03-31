@@ -1,5 +1,62 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= slugname %>",
+  "version": "<%= props.version %>",
+  "description": "<%= props.description %>",
+  <%
+  if (props.homepage) { %> "homepage": "<%= props.homepage %>",
+    <%
+  } %>
+    "bugs": {
+      "url": "<%= props.githubUsername %>/<%= slugname %>/issues"
+  },
+  "author": { <%
+    if (props.authorUrl) { %> "url": "<%= props.authorUrl %>" <%
+    } %> , <%
+    if (props.authorName) { %> "name": "<%= props.authorName %>" <%
+    } %> , <%
+    if (props.authorEmail) { %> "email": "<%= props.authorEmail %>" <%
+    } %>
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= repoUrl %>"
+  },
+  "license": "<%= props.license %>",
+  "files": [ <%
+    if (props.taskRunner === 'simple.js') { %>
+        "index.js" <%
+    } else { %>
+        "lib/index.js" <%
+    } %> <%
+    if (props.cli) { %> ,
+        "cli.js" <%
+    } %>
+  ],
+  "keywords": [
+    "broccoli-plugin",
+    "<%= slugname %>" <%
+    for (var i = 0; i < keywords.length; i++) { %> ,
+        "<%= keywords[i] %>" <%
+    } %>
+  ],
+  "dependencies": { <%
+    if (props.cli) { %>
+        "minimist": "^1.1.1",
+      <%
+    } %>
+      "broccoli-filter": "^0.1.12"
+  },
+  "devDependencies": {
+    "broccoli": "^0.15.3",
+    "mocha": "*",
+    "rimraf": "^2.3.2"
+  },
+  "scripts": {
+    "test": "broccoli build temp && mocha"
+  } <%
+  if (props.cli) { %> ,
+      "bin": {
+        "<%= slugname %>": "cli.js"
+    } <%
+  } %>
 }

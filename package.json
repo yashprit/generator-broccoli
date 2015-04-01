@@ -1,6 +1,6 @@
 {
   "name": "generator-broccoli",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha",
   "description": "Yeoman generator for creating broccoli",
   "license": "MIT",
   "main": "app/index.js",
@@ -24,8 +24,10 @@
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.9",
-    "chalk": "^1.0.0",
-    "yosay": "^1.0.2"
+    "colors": "^1.0.3",
+    "git-scope-config": "0.0.0-beta",
+    "github-init": "0.0.0-beta",
+    "npm-name": "^1.0.3"
   },
   "devDependencies": {
     "mocha": "*"

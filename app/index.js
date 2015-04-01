@@ -13,26 +13,12 @@ module.exports = yeoman.generators.Base.extend({
   init: function() {
     this.pkg = require('../package.json');
 
-    var bode = "\n\n" +
-      "                                                 dddddddd\n".yellow +
-      "BBBBBBBBBBBBBBBBB                                d::::::d\n".yellow +
-      "B::::::::::::::::B                               d::::::d\n".yellow +
-      "B::::::BBBBBB:::::B                              d::::::d\n".yellow +
-      "BB:::::B     B:::::B                             d:::::d\n".green +
-      "  B::::B     B:::::B   ooooooooooo       ddddddddd:::::d     eeeeeeeeeeee\n".green +
-      "  B::::B     B:::::B oo:::::::::::oo   dd::::::::::::::d   ee::::::::::::ee\n".green +
-      "  B::::BBBBBB:::::B o:::::::::::::::o d::::::::::::::::d  e::::::eeeee:::::ee\n".green +
-      "  B:::::::::::::BB  o:::::ooooo:::::od:::::::ddddd:::::d e::::::e     e:::::e\n" +
-      "  B::::BBBBBB:::::B o::::o     o::::od::::::d    d:::::d e:::::::eeeee::::::e\n".blue +
-      "  B::::B     B:::::Bo::::o     o::::od:::::d     d:::::d e:::::::::::::::::e\n".blue +
-      "  B::::B     B:::::Bo::::o     o::::od:::::d     d:::::d e::::::eeeeeeeeeee\n".blue +
-      "  B::::B     B:::::Bo::::o     o::::od:::::d     d:::::d e:::::::e\n".blue +
-      "BB:::::BBBBBB::::::Bo:::::ooooo:::::od::::::ddddd::::::dde::::::::e\n".red +
-      "B:::::::::::::::::B o:::::::::::::::o d:::::::::::::::::d e::::::::eeeeeeee\n".red +
-      "B::::::::::::::::B   oo:::::::::::oo   d:::::::::ddd::::d  ee:::::::::::::e\n".red +
-      "BBBBBBBBBBBBBBBBB      ooooooooooo      ddddddddd   ddddd    eeeeeeeeeeeeee\n".red;
+    var broccoli = "\n\n" +
+      "┌┐ ┬─┐┌─┐┌─┐┌─┐┌─┐┬  ┬\n".red +
+      "├┴┐├┬┘│ ││  │  │ ││  │\n".yellow +
+      "└─┘┴└─└─┘└─┘└─┘└─┘┴─┘┴\n".blue
 
-    this.log(bode +
+    this.log(broccoli +
       '\nThe name of your project shouldn\'t contain "node" or "js" and'.cyan +
       '\nshould be a unique ID not already in use at npmjs.org.'.cyan);
   },
@@ -160,9 +146,8 @@ module.exports = yeoman.generators.Base.extend({
       message: 'Author\'s Homepage'.green,
       store: true
     }, {
-      type: 'confirm',
-      name: 'cli',
-      message: 'Lets run it from CLI'.green
+      name: 'keywords',
+      message: 'Give me some Keywords (comma to split)'.green
     }];
 
     this.currentYear = (new Date()).getFullYear();
@@ -175,9 +160,13 @@ module.exports = yeoman.generators.Base.extend({
         this.repoUrl = 'user/repo';
       }
 
-      this.keywords = props.keywords.split(',').map(function(el) {
-        return el.trim();
-      });
+      if (props.keywords) {
+        this.keywords = props.keywords.split(',').map(function(el) {
+          return el.trim();
+        });
+      } else {
+        this.keywords = [];
+      }
 
       this.props = props;
 
@@ -191,7 +180,8 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
     this.copy('travis.yml', '.travis.yml');
-    this.copy('.npmignore', '.npmignore');
+    this.copy('npmignore', '.npmignore');
+    this.copy('Brocfile.js', 'Brocfile.js');
 
     this.template('jshintrc', '.jshintrc');
 
@@ -209,6 +199,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   projectfiles: function() {
+    this.mkdir('fixture');
     this.template('index.js', 'index.js');
     this.template('test.js', 'test.js');
   },

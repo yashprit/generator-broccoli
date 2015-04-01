@@ -10,10 +10,12 @@
       "url": "<%= props.githubUsername %>/<%= slugname %>/issues"
   },
   "author": { <%
-    if (props.authorUrl) { %> "url": "<%= props.authorUrl %>" <%
-    } %> , <%
-    if (props.authorName) { %> "name": "<%= props.authorName %>" <%
-    } %> , <%
+    if (props.authorUrl) { %> "url": "<%= props.authorUrl %>",
+      <%
+    } %> <%
+    if (props.authorName) { %> "name": "<%= props.authorName %>",
+      <%
+    } %> <%
     if (props.authorEmail) { %> "email": "<%= props.authorEmail %>" <%
     } %>
   },

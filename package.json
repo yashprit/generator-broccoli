@@ -20,13 +20,15 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "generator-broccoli",
+    "broccoli"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.9",
     "colors": "^1.0.3",
-    "git-scope-config": "0.0.0-beta",
-    "github-init": "0.0.0-beta",
+    "git-scope-config": "0.0.0",
+    "github-init": "0.0.0",
     "npm-name": "^1.0.3"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-#  [broccoli](https://github.com/broccolijs/broccoli)-html [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+#  <%= slugname %> [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 > convert markdown to html using [html-md](https://www.npmjs.com/package/html-md)
 
@@ -37,10 +37,10 @@ For bugs and feature requests, [please create an issue][issue-url].
 
 MIT © [Yashprit](yashprit.github.io)
 
-[issue-url]: https://github.com/yashprit/broccoli-html/issues
-[npm-url]: https://npmjs.org/package/broccoli-html
-[npm-image]: https://badge.fury.io/js/broccoli-html.svg
-[travis-url]: https://travis-ci.org/yashprit/broccoli-html
-[travis-image]: https://travis-ci.org/yashprit/broccoli-html.svg?branch=master
-[daviddm-url]: https://david-dm.org/yashprit/broccoli-html.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/yashprit/broccoli-html
+[issue-url]: https://github.com/<%= props.githubUsername %>/<%= slugname %>/issues
+[npm-url]: https://npmjs.org/package/<%= slugname %>
+[npm-image]: https://badge.fury.io/js/<%= slugname %>.svg
+[travis-url]: https://travis-ci.org/<%= props.githubUsername %>/<%= slugname %>
+[travis-image]: https://travis-ci.org/<%= props.githubUsername %>/<%= slugname %>.svg?branch=master
+[daviddm-url]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/<%= props.githubUsername %>/<%= slugname %>

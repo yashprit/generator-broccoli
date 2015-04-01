@@ -219,7 +219,7 @@ module.exports = yeoman.generators.Base.extend({
               self.log(err);
               return;
             }
-            self.log(data);
+            self.log("Done with everything, enjoy !!!".yellow);
           }
         })
       }

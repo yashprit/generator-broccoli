@@ -34,6 +34,8 @@ Finally, initiate the generator:
 ```bash
 $ yo broccoli
 ```
+![ScreenShot](https://raw.github.com/yashprit/generator-broccoli/master/screenshot.png)
+
 
 ## Run Test
 ```sh
